@@ -1,0 +1,15 @@
+[package]
+name = "dune_head_app"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+htmlescape = "0.3.1"
+reqwest = {version = "0.11.8", features = ["blocking"]}
+serde = "1.0.133"
+serde-xml-rs = "0.5.1"
+serde_derive = "1.0.133"
+
+
