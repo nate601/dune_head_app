@@ -7,7 +7,8 @@ edition = "2021"
 
 [dependencies]
 htmlescape = "0.3.1"
-reqwest = {version = "0.11.8", features = ["blocking"]}
+rand = "0.8.4"
+reqwest = {version = "0.11.8", features = ["blocking", "json"]}
 serde = "1.0.133"
 serde-xml-rs = "0.5.1"
 serde_derive = "1.0.133"
