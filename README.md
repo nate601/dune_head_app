@@ -6,7 +6,7 @@
 ## Usage
 
 ```sh
-env DUNE_HEAD={DISCORD_WEBHOOK_URL} ./dune_head_app
+env HEAD_API={DISCORD_WEBHOOK_URL} ./dune_head_app
 ```
 
 ## Author
