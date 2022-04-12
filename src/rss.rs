@@ -12,6 +12,7 @@ pub struct Item {
     pub title: String,
     pub news_item: Vec<NewsItem>,
     pub picture: String,
+    pub approx_traffic: String,
 }
 #[derive(Debug, Deserialize)]
 pub struct NewsItem {

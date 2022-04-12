@@ -25,14 +25,15 @@ fn main() {
     }
     let mut rng = rand::thread_rng();
     let choice = items.choose(&mut rng).expect("Unable to randomly choose");
+    let headline =  items.iter().max_by_key(|p| p.approx_traffic.replace(&[',','+'], "").parse::<i32>().unwrap()).unwrap_or(choice);
     send_discord_message(
         client,
-        get_meme_text(&htmlescape::decode_html(&choice.title).expect("unable to decode title")),
-        choice.news_item[0].news_item_url.to_string(),
-        htmlescape::decode_html(&choice.news_item[0].news_item_title)
+        get_meme_text(&htmlescape::decode_html(&headline.title).expect("unable to decode title")),
+        headline.news_item[0].news_item_url.to_string(),
+        htmlescape::decode_html(&headline.news_item[0].news_item_title)
             .expect("Unable to decode news title")
             .to_string(),
-        choice.picture.to_string(),
+            headline.picture.to_string(),
     );
 }
 fn get_meme_text(title: &String) -> String {
