@@ -30,13 +30,7 @@ fn main()
     let choice = items.choose(&mut rng).expect("Unable to randomly choose");
     let headline = items
         .iter()
-        .max_by_key(|p| {
-            p.approx_traffic
-                .replace(",", "")
-                .replace("+", "")
-                .parse::<i32>()
-                .unwrap()
-        })
+        .max_by_key(|p| p.get_approx_traffic().unwrap())
         .unwrap_or(choice);
     send_discord_message(
         client,
