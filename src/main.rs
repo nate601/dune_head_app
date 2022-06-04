@@ -15,7 +15,10 @@ fn main()
         .text()
         .expect("Unable to parse response!");
     let rss_string: Rss = from_str(&res).unwrap();
-    let items = rss_string.channel.item;
+    let mut items = rss_string.channel.item;
+    items.sort_by_key(|x|{x.get_approx_traffic().unwrap()});
+    items.reverse();
+    
     for i in &items
     {
         let title = htmlescape::decode_html(&i.title).expect("Unable to decode title");
